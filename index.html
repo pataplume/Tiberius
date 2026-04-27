@@ -6,1111 +6,222 @@
   <title>Kit IA · PME Locales</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
-:root {
-  --paper:        oklch(0.974 0.012 80);
-  --paper-2:      oklch(0.955 0.014 80);
-  --paper-3:      oklch(0.93 0.016 75);
-  --ink:          oklch(0.22 0.02 60);
-  --ink-2:        oklch(0.38 0.018 60);
-  --ink-3:        oklch(0.55 0.012 70);
-  --rule:         oklch(0.85 0.02 70);
-  --rule-soft:    oklch(0.91 0.015 70);
-  --accent:       oklch(0.58 0.14 38);
-  --accent-soft:  oklch(0.92 0.04 38);
-  --accent-ink:   oklch(0.36 0.10 38);
-  --serif:  "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --sans:   "Geist", -apple-system, "Helvetica Neue", Arial, sans-serif;
-  --mono:   "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 16px;
-  --sb-w: 280px;
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-button { font-family: inherit; cursor: pointer; }
-
-.layout {
-  display: grid;
-  grid-template-columns: var(--sb-w) 1fr;
-  min-height: 100vh;
-  height: 100vh;
-}
-.main {
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  padding: 64px clamp(32px, 7vw, 110px) 120px;
-  background:
-    radial-gradient(circle at 92% 4%, oklch(0.96 0.04 38 / 0.4), transparent 40%),
-    var(--paper);
-}
-
-.sidebar {
-  border-right: 1px solid var(--rule);
-  background: var(--paper-2);
-  padding: 28px 22px 24px;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-}
-.sb-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--rule-soft);
-  margin-bottom: 18px;
-  position: relative;
-}
-.sb-mark {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
-  display: grid;
-  place-items: center;
-}
-.sb-brand-title {
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-.sb-brand-sub {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--ink-3);
-  margin-top: 4px;
-}
-.sb-close {
-  display: none;
-  position: absolute;
-  right: -4px; top: -4px;
-  background: transparent;
-  border: none;
-  font-size: 26px;
-  color: var(--ink-3);
-  width: 32px; height: 32px;
-}
-.sb-search {
-  position: relative;
-  margin-bottom: 22px;
-}
-.sb-search input {
-  width: 100%;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: var(--r-sm);
-  padding: 10px 32px 10px 32px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--ink);
-  outline: none;
-  transition: border-color .15s;
-}
-.sb-search input:focus { border-color: var(--ink-2); }
-.sb-search input::placeholder { color: var(--ink-3); }
-.sb-search-ico {
-  position: absolute;
-  left: 11px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--ink-3);
-  pointer-events: none;
-}
-.sb-search-clear {
-  position: absolute;
-  right: 6px; top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  color: var(--ink-3);
-  width: 22px; height: 22px;
-  border-radius: 50%;
-}
-.sb-search-clear:hover { background: var(--paper-3); color: var(--ink); }
-.sb-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  flex: 1;
-}
-.sb-nav-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--ink-3);
-  padding: 4px 10px 8px;
-}
-.sb-link {
-  display: grid;
-  grid-template-columns: 28px 1fr auto;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 10px;
-  background: transparent;
-  border: none;
-  border-radius: var(--r-sm);
-  text-align: left;
-  color: var(--ink-2);
-  font-size: 13.5px;
-  transition: background .12s, color .12s;
-}
-.sb-link:hover { background: var(--paper-3); color: var(--ink); }
-.sb-link.is-active { background: var(--ink); color: var(--paper); }
-.sb-link.is-active .sb-link-num,
-.sb-link.is-active .sb-link-count { color: oklch(0.85 0.02 70); }
-.sb-link-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: 0.05em;
-}
-.sb-link-title { font-weight: 500; }
-.sb-link-count {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-3);
-}
-.sb-foot {
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid var(--rule-soft);
-}
-.sb-foot-line {
-  font-size: 11px;
-  color: var(--ink-2);
-  font-family: var(--mono);
-}
-.sb-foot-line.dim { color: var(--ink-3); margin-top: 4px; }
-.sb-burger {
-  display: none;
-  position: fixed;
-  top: 16px; right: 16px;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--ink);
-  border: none;
-  z-index: 50;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-.sb-burger span {
-  display: block;
-  width: 18px; height: 1.5px;
-  background: var(--paper);
-}
-
-.hero {
-  max-width: 920px;
-  margin-bottom: 100px;
-  padding-bottom: 56px;
-  border-bottom: 1px solid var(--rule);
-}
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--ink-2);
-  font-family: var(--mono);
-  margin-bottom: 38px;
-}
-.hero-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.hero-title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(44px, 7vw, 88px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin: 0 0 32px;
-  color: var(--ink);
-}
-.hero-title-line { display: block; white-space: nowrap; }
-.hero-title-italic { font-style: italic; color: var(--accent-ink); }
-.hero-lede {
-  font-size: 19px;
-  line-height: 1.5;
-  color: var(--ink-2);
-  max-width: 640px;
-  margin: 0 0 56px;
-  text-wrap: pretty;
-}
-.hero-stats {
-  display: flex;
-  align-items: center;
-  gap: clamp(18px, 3vw, 38px);
-  padding: 28px 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 48px;
-  flex-wrap: wrap;
-}
-.hero-stat-num {
-  font-family: var(--serif);
-  font-size: 56px;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
-}
-.hero-stat-lbl {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--ink-3);
-  font-family: var(--mono);
-  line-height: 1.4;
-}
-.hero-stat-sep { width: 1px; height: 56px; background: var(--rule); }
-.hero-tip {
-  background: var(--paper-2);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--r-md);
-  padding: 24px 28px;
-  max-width: 720px;
-}
-.hero-tip-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--accent-ink);
-  font-family: var(--mono);
-  margin-bottom: 14px;
-}
-.hero-tip-steps {
-  list-style: none;
-  padding: 0; margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 14.5px;
-  color: var(--ink);
-}
-.hero-tip-steps b { font-family: var(--mono); font-weight: 500; color: var(--accent); margin-right: 6px; }
-.hero-tip-steps em { font-style: italic; font-family: var(--serif); font-size: 16px; }
-.hero-tip-steps code {
-  font-family: var(--mono);
-  font-size: 12px;
-  background: var(--paper-3);
-  padding: 1px 6px;
-  border-radius: 3px;
-  color: var(--ink-2);
-}
-
-.cat-section { margin-bottom: 110px; scroll-margin-top: 24px; }
-.cat-header {
-  margin-bottom: 36px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--rule);
-}
-.cat-header-left {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 14px;
-}
-.cat-marker {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: oklch(0.92 0.06 var(--cat-hue));
-  color: oklch(0.4 0.13 var(--cat-hue));
-  display: grid;
-  place-items: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-.cat-eyebrow {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--ink-3);
-  font-family: var(--mono);
-  margin-bottom: 6px;
-}
-.cat-title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(40px, 5vw, 60px);
-  line-height: 1;
-  letter-spacing: -0.015em;
-  margin: 0;
-}
-.cat-intro {
-  max-width: 660px;
-  font-size: 16px;
-  color: var(--ink-2);
-  margin: 0;
-  line-height: 1.5;
-  text-wrap: pretty;
-}
-.cat-prompts {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-top: 1px solid var(--rule-soft);
-}
-
-.prompt-card {
-  border-bottom: 1px solid var(--rule-soft);
-  transition: background .15s;
-}
-.prompt-card:hover { background: oklch(0.96 0.014 80 / 0.5); }
-.prompt-card.is-expanded { background: var(--paper-2); }
-.pc-head {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: start;
-  gap: 24px;
-  padding: 22px 4px;
-  cursor: pointer;
-  user-select: none;
-}
-.pc-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  text-align: right;
-  width: 60px;
-}
-.pc-num-label {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--ink-3);
-  font-size: 9.5px;
-  margin-bottom: 4px;
-}
-.pc-num-val {
-  font-family: var(--serif);
-  font-size: 32px;
-  color: oklch(0.5 0.13 var(--cat-hue));
-  line-height: 1;
-  font-style: italic;
-}
-.pc-title-wrap { padding-top: 6px; }
-.pc-title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 24px;
-  letter-spacing: -0.01em;
-  margin: 0 0 4px;
-  line-height: 1.15;
-}
-.pc-obj { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.5; }
-.pc-toggle {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: transparent;
-  border: 1px solid var(--rule);
-  color: var(--ink-2);
-  display: grid;
-  place-items: center;
-  transition: all .15s;
-  margin-top: 8px;
-}
-.prompt-card:hover .pc-toggle { border-color: var(--ink-2); color: var(--ink); }
-.prompt-card.is-expanded .pc-toggle { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.pc-toggle-icon { font-size: 20px; line-height: 1; font-weight: 300; }
-.pc-body {
-  padding: 4px 4px 28px 88px;
-  animation: slideDown .25s ease-out;
-}
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.pc-tabs {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 14px;
-  padding: 4px;
-  background: var(--paper);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--r-sm);
-  width: fit-content;
-}
-.pc-tab {
-  background: transparent;
-  border: none;
-  padding: 6px 14px;
-  font-size: 12px;
-  color: var(--ink-2);
-  border-radius: 4px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-.pc-tab:hover { color: var(--ink); }
-.pc-tab.is-active { background: var(--ink); color: var(--paper); }
-.pc-tab-spacer { display: none; }
-.pc-prompt {
-  font-family: var(--mono);
-  font-size: 13px;
-  line-height: 1.65;
-  background: var(--paper);
-  border: 1px solid var(--rule-soft);
-  border-left: 3px solid oklch(0.55 0.13 var(--cat-hue));
-  border-radius: var(--r-sm);
-  padding: 18px 20px;
-  margin: 0 0 14px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  color: var(--ink);
-}
-.pc-foot {
-  display: flex;
-  gap: 12px;
-  align-items: baseline;
-  font-size: 13px;
-  color: var(--ink-2);
-  padding-top: 4px;
-}
-.pc-foot-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--ink-3);
-  flex-shrink: 0;
-}
-.pc-foot-text { font-style: italic; font-family: var(--serif); font-size: 16px; color: var(--ink-2); }
-
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: 1px solid var(--rule);
-  padding: 6px 11px;
-  border-radius: var(--r-sm);
-  font-size: 12px;
-  color: var(--ink-2);
-  font-weight: 500;
-  transition: all .15s;
-  margin-left: auto;
-}
-.copy-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.copy-btn.is-done { background: oklch(0.55 0.14 145); color: white; border-color: oklch(0.55 0.14 145); }
-.copy-icon { display: inline-flex; width: 13px; height: 13px; }
-
-.wf-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
-  gap: 24px;
-}
-.wf-card {
-  background: var(--paper-2);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--r-md);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-}
-.wf-head {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 18px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--rule-soft);
-}
-.wf-num {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
-  color: var(--accent);
-  line-height: 1;
-  flex-shrink: 0;
-  width: 50px;
-}
-.wf-title { font-family: var(--serif); font-weight: 400; font-size: 24px; margin: 0 0 4px; line-height: 1.2; letter-spacing: -0.01em; }
-.wf-sub { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.4; }
-.wf-steps {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
-}
-.wf-steps li {
-  display: flex;
-  gap: 12px;
-  font-size: 13.5px;
-  line-height: 1.5;
-  padding: 6px 0;
-  border-bottom: 1px dotted var(--rule-soft);
-}
-.wf-steps li:last-child { border-bottom: none; }
-.wf-step-n { font-family: var(--mono); font-size: 11px; color: var(--accent); flex-shrink: 0; width: 22px; padding-top: 2px; }
-.wf-prompt-wrap { background: var(--paper); border: 1px solid var(--rule-soft); border-radius: var(--r-sm); padding: 14px 16px; }
-.wf-prompt-head { display: flex; align-items: center; margin-bottom: 8px; gap: 12px; }
-.wf-prompt-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-3); }
-.wf-prompt { font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--ink); margin: 0; white-space: pre-wrap; word-wrap: break-word; }
-
-.ex-grid { display: flex; flex-direction: column; gap: 28px; }
-.ex-card { background: var(--paper-2); border: 1px solid var(--rule-soft); border-radius: var(--r-md); overflow: hidden; }
-.ex-head { padding: 28px 32px 22px; border-bottom: 1px solid var(--rule-soft); background: linear-gradient(180deg, oklch(0.96 0.025 80), transparent); }
-.ex-tag {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--accent-ink);
-  background: var(--accent-soft);
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-bottom: 12px;
-}
-.ex-sector { font-family: var(--serif); font-weight: 400; font-size: 36px; margin: 0 0 8px; letter-spacing: -0.015em; line-height: 1; }
-.ex-situation { font-size: 19px; color: var(--ink-2); margin: 0; font-style: italic; font-family: var(--serif); line-height: 1.4; }
-.ex-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.ex-block { padding: 24px 32px; border-right: 1px solid var(--rule-soft); }
-.ex-block-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ink-3); margin-bottom: 12px; }
-.ex-block-text { font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--ink); margin: 0 0 14px; white-space: pre-wrap; word-wrap: break-word; }
-.ex-result { padding: 24px 32px; background: var(--paper); }
-.ex-result-name { font-family: var(--serif); font-size: 26px; letter-spacing: -0.01em; margin-bottom: 6px; }
-.ex-result-accroche { font-style: italic; font-family: var(--serif); font-size: 18px; color: var(--accent-ink); margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--rule-soft); line-height: 1.3; }
-.ex-result-post { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); margin: 0; text-wrap: pretty; }
-
-.conclusion { max-width: 720px; margin: 60px auto 0; text-align: center; padding: 80px 32px 60px; border-top: 1px solid var(--rule); }
-.conclusion-mark { font-family: var(--serif); font-size: 60px; color: var(--accent); line-height: 0.5; margin-bottom: 24px; }
-.conclusion-title { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 24px; }
-.conclusion-text { font-size: 17px; line-height: 1.6; color: var(--ink-2); text-wrap: pretty; margin-bottom: 40px; }
-.conclusion-foot { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ink-3); }
-
-.search-results { padding-top: 8px; }
-.search-head { font-size: 14px; color: var(--ink-2); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
-.search-count { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--accent); }
-.search-empty { padding: 80px 24px; text-align: center; color: var(--ink-2); font-family: var(--serif); font-size: 22px; font-style: italic; }
-
-@media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; }
-  .sidebar {
-    position: fixed;
-    left: 0; top: 0;
-    width: 280px;
-    z-index: 100;
-    transform: translateX(-100%);
-    transition: transform .25s;
-    box-shadow: 8px 0 30px rgba(0,0,0,0.08);
-  }
-  .sidebar.is-open { transform: translateX(0); }
-  .sb-close { display: grid; }
-  .sb-burger { display: flex; }
-  .main { padding: 64px 24px 100px; }
-  .ex-body { grid-template-columns: 1fr; }
-  .ex-block { border-right: none; border-bottom: 1px solid var(--rule-soft); }
-  .pc-body { padding-left: 4px; }
-  .pc-num { width: 50px; }
-  .pc-num-val { font-size: 24px; }
-  .hero-stats { gap: 18px; }
-  .hero-stat-sep { display: none; }
-  .hero-stat-num { font-size: 40px; }
-  .wf-grid { grid-template-columns: 1fr; }
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper:       oklch(0.974 0.012 80);
+      --ink:         oklch(0.22 0.02 60);
+      --ink-2:       oklch(0.38 0.018 60);
+      --ink-3:       oklch(0.55 0.012 70);
+      --accent:      oklch(0.58 0.14 38);
+      --accent-ink:  oklch(0.36 0.10 38);
+      --accent-soft: oklch(0.92 0.04 38);
+      --serif: "Instrument Serif", Georgia, serif;
+      --sans:  "Geist", -apple-system, Arial, sans-serif;
+      --mono:  "Geist Mono", monospace;
+    }
+    html, body { min-height: 100vh; }
+    body {
+      background:
+        radial-gradient(ellipse at 80% 10%, oklch(0.96 0.04 38 / 0.35) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 90%, oklch(0.94 0.03 80 / 0.4) 0%, transparent 45%),
+        var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 80px;
+      min-height: 100vh;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--ink-3);
+      margin-bottom: 36px;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.65); }
+    }
+    .headline {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      text-align: center;
+      margin-bottom: 28px;
+      max-width: 780px;
+    }
+    .headline em { font-style: italic; color: var(--accent-ink); }
+    .description {
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.65;
+      color: var(--ink-2);
+      text-align: center;
+      max-width: 500px;
+      margin-bottom: 60px;
+      text-wrap: pretty;
+    }
+    .cta-wrap {
+      position: relative;
+      margin-bottom: 52px;
+    }
+    .cta-glow {
+      position: absolute;
+      inset: -16px;
+      border-radius: 999px;
+      background: radial-gradient(ellipse, oklch(0.58 0.14 38 / 0.18), transparent 70%);
+      z-index: 0;
+      animation: glow-breathe 3s ease-in-out infinite;
+    }
+    @keyframes glow-breathe {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.1); }
+    }
+    .cta {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      padding: 18px 40px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 28px oklch(0.22 0.02 60 / 0.2);
+      overflow: hidden;
+    }
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 30%, oklch(1 0 0 / 0.1) 50%, transparent 70%);
+      transform: translateX(-120%);
+    }
+    .cta:hover::before { transform: translateX(120%); transition: transform 0.5s ease; }
+    .cta:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 0 0 6px oklch(0.58 0.14 38 / 0.14),
+        0 16px 48px oklch(0.22 0.02 60 / 0.24);
+    }
+    .cta:active { transform: translateY(-1px); }
+    .cta-arrow { display: inline-flex; transition: transform 0.2s ease; }
+    .cta:hover .cta-arrow { transform: translateX(5px); }
+    .support {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .support-text {
+      font-size: 14px;
+      color: var(--ink-3);
+      text-align: center;
+      max-width: 360px;
+      line-height: 1.55;
+    }
+    .support-text strong { color: var(--ink-2); font-weight: 500; }
+    .coffee-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-ink);
+      background: var(--accent-soft);
+      border: 1px solid oklch(0.84 0.06 38);
+      padding: 9px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    }
+    .coffee-btn:hover {
+      background: oklch(0.87 0.07 38);
+      border-color: oklch(0.76 0.09 38);
+      transform: translateY(-1px);
+    }
+    .footer-mark {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--ink-3);
+      opacity: 0.4;
+      white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .cta { padding: 16px 32px; font-size: 15px; }
+    }
   </style>
 </head>
 <body>
-  <div id="root"></div>
 
-  <script>
-    window.addEventListener("error", (e) => {
-      if (e.message && e.message.includes("ResizeObserver loop")) {
-        e.stopImmediatePropagation();
-        e.preventDefault();
-      }
-    });
+  <div class="eyebrow">
+    <span class="eyebrow-dot"></span>
+    Kit premium · Édition 2026
+  </div>
 
-    window.EBOOK_DATA = {
-      title: "Kit IA · PME Locales",
-      subtitle: "35 prompts + 5 workflows pour gagner du temps, mieux communiquer et développer votre activité locale.",
-      sections: [
-        {
-          id: "communication", number: "01", title: "Communication client",
-          intro: "Optimiser vos échanges avec vos clients, depuis la première réponse jusqu'aux relances. Des messages clairs, chaleureux et professionnels.",
-          prompts: [
-            { n: 1, title: "Répondre à une demande client", objectif: "Répondre vite et professionnellement à un message client.", complet: "Tu es l'assistant d'une PME locale. Rédige une réponse claire, chaleureuse et professionnelle à ce message client : \"[COLLER LE MESSAGE CLIENT]\" Notre activité : [TYPE D'ENTREPRISE]. Notre ton : simple, humain, professionnel. Objectif de la réponse : [INFORMER / RASSURER / PROPOSER UN RDV / DONNER UN PRIX / DEMANDER DES INFOS]. Termine avec une phrase qui invite le client à répondre ou à réserver.", courte: "Réponds professionnellement à ce message client : \"[MESSAGE]\". Ton simple, humain, clair.", avancee: "Agis comme un expert en relation client pour une PME locale. Propose trois versions de réponse (courte, chaleureuse, premium) pour ce message : \"[MESSAGE CLIENT]\". Ajoute une variante WhatsApp et une variante email, en adaptant le ton et la longueur.", cas: "Un client demande les disponibilités d'un salon de beauté pour samedi." },
-            { n: 2, title: "Transformer un brouillon en message professionnel", objectif: "Améliorer un message écrit rapidement pour le rendre clair, crédible et agréable à lire.", complet: "Réécris ce message pour le rendre plus clair, professionnel, poli et naturel, sans le rendre trop formel : \"[MESSAGE BROUILLON]\" Conserve le sens, améliore la structure, retire les maladresses et termine par une formule agréable.", courte: "Améliore ce message client : \"[MESSAGE]\".", avancee: "Tu es un expert en communication écrite. Donne trois versions différentes (directe, chaleureuse, haut de gamme) de ce message : \"[MESSAGE]\". Explique brièvement pour chaque version dans quel contexte elle est la plus appropriée.", cas: "Un artisan veut répondre à un client mécontent sans paraître froid." },
-            { n: 3, title: "Répondre à une demande de prix", objectif: "Éviter de donner un prix sec et mieux vendre la valeur d'une prestation.", complet: "Rédige une réponse à un prospect qui demande le prix de : [PRESTATION]. Notre entreprise : [DESCRIPTION]. Prix ou fourchette : [PRIX]. Explique brièvement ce qui est inclus, valorise la qualité du service, rassure le client et propose une prochaine étape simple.", courte: "Réponds à une demande de prix pour [SERVICE] à [PRIX], en valorisant la prestation.", avancee: "En tant qu'expert en vente de services, crée une réponse en trois niveaux (basique, standard, premium) pour la prestation \"[PRESTATION]\" avec descriptions, prix et bénéfices. Termine par une proposition de rendez-vous ou d'appel.", cas: "Un client demande \"Combien coûte une coupe brushing ?\"." },
-            { n: 4, title: "Répondre à un client hésitant", objectif: "Rassurer un prospect intéressé mais hésitant et l'orienter vers la prochaine étape.", complet: "Rédige une réponse pour un prospect intéressé mais hésitant. Contexte : [EXPLIQUER LA SITUATION]. Ses objections possibles : [PRIX / TEMPS / CONFIANCE / BESOIN PAS URGENT]. Réponse attendue : rassurante, naturelle, sans pression commerciale. Termine avec une proposition simple : appel, rendez-vous, devis ou réservation.", courte: "Réponds à ce prospect hésitant : \"[MESSAGE]\". Rassure-le et propose une prochaine étape.", avancee: "Agis comme un coach en vente. Propose une réponse qui traite trois objections possibles en utilisant des formulations empathiques. Inclue un court paragraphe pour chaque objection (prix, temps, confiance) et conclue par un appel à l'action.", cas: "Un client demande un devis mais ne répond plus après réception." },
-            { n: 5, title: "Écrire un message de relance", objectif: "Relancer un prospect sans être insistant.", complet: "Rédige un message de relance court, poli et efficace pour un prospect qui n'a pas répondu depuis [NOMBRE] jours. Contexte : [DEVIS / RDV / DEMANDE D'INFO / RÉSERVATION]. Ton : naturel, professionnel, non insistant. Termine par une question simple.", courte: "Écris une relance douce pour un prospect silencieux depuis [X] jours.", avancee: "En tant qu'expert en suivi commercial, propose trois relances distinctes à envoyer à J+2, J+7 et J+14. Chaque relance doit rappeler le contexte de façon subtile, apporter de la valeur et inviter à répondre.", cas: "Un artisan a envoyé un devis et veut relancer après une semaine." }
-          ]
-        },
-        {
-          id: "marketing", number: "02", title: "Marketing local",
-          intro: "Créer des offres locales, des promotions saisonnières, optimiser votre fiche Google et générer des idées marketing adaptées à votre quartier.",
-          prompts: [
-            { n: 6, title: "Créer une offre locale attractive", objectif: "Créer une offre simple et attractive pour attirer des clients locaux.", complet: "Crée une offre marketing locale pour mon entreprise : [TYPE D'ENTREPRISE]. Ville/quartier : [LIEU]. Cible : [CLIENTÈLE]. Prestation à promouvoir : [SERVICE/PRODUIT]. Objectif : [PLUS DE RDV / PLUS DE VISIBILITÉ / PLUS DE RÉSERVATIONS / PLUS DE DEVIS]. Donne un nom d'offre, une accroche, les bénéfices, le texte promotionnel, une version courte pour réseaux sociaux et un appel à l'action.", courte: "Crée une offre locale attractive pour [SERVICE] à [LIEU].", avancee: "Agis comme un copywriter. Propose trois variantes d'offre (découverte, limitée, premium) avec des noms, des tarifs et des messages différents. Inclue un argumentaire court expliquant pourquoi chaque offre conviendra à un segment de clientèle différent.", cas: "Un salon veut promouvoir un soin visage spécial printemps." },
-            { n: 7, title: "Créer une promotion saisonnière", objectif: "Profiter d'une saison ou d'un événement pour proposer une promotion ciblée.", complet: "Propose une promotion saisonnière pour une PME locale. Activité : [ACTIVITÉ]. Saison ou événement : [NOËL / ÉTÉ / RENTRÉE / SAINT-VALENTIN / FÊTE LOCALE]. Cible : [CLIENTÈLE]. Objectif : augmenter les ventes sans dévaloriser la marque. Donne le concept, le message, l'offre, la durée, les supports de communication et 3 textes prêts à publier.", courte: "Crée une promotion saisonnière pour [ENTREPRISE] pendant [PÉRIODE].", avancee: "En tant que marketeur expérimenté, propose deux versions : une promotion avec remise et une offre premium sans remise directe (par exemple, un service supplémentaire). Explique comment communiquer différemment selon les canaux (email, réseaux sociaux, affichage local).", cas: "Un restaurant prépare une offre spéciale Saint-Valentin." },
-            { n: 8, title: "Améliorer la fiche Google Business Profile", objectif: "Rendre la fiche Google Business plus convaincante et optimisée.", complet: "Aide-moi à optimiser la description Google Business Profile de mon entreprise. Nom : [NOM]. Activité : [ACTIVITÉ]. Ville : [VILLE]. Services principaux : [LISTE]. Points forts : [QUALITÉ / RAPIDITÉ / EXPÉRIENCE / PROXIMITÉ / PRIX]. Rédige une description claire, locale, rassurante et optimisée pour donner envie de nous contacter.", courte: "Rédige une description Google Business Profile pour [ENTREPRISE] à [VILLE].", avancee: "Agis comme un expert SEO local. Ajoute cinq mots-clés pertinents et trois appels à l'action à intégrer naturellement. Propose aussi une version courte de 150 caractères pour l'aperçu.", cas: "Un plombier veut apparaître plus sérieux sur Google." },
-            { n: 9, title: "Trouver des idées de campagnes locales", objectif: "Générer des idées simples et réalistes pour attirer des clients locaux.", complet: "Propose 10 idées de campagnes marketing locales pour mon entreprise : [ACTIVITÉ]. Ville/quartier : [LIEU]. Budget : [FAIBLE / MOYEN / ÉLEVÉ]. Objectif : [VISIBILITÉ / RÉSERVATIONS / DEVIS / FIDÉLISATION]. Les idées doivent être simples, réalistes et applicables en moins de 7 jours.", courte: "Donne 10 idées marketing locales pour [ACTIVITÉ] à [VILLE].", avancee: "En tant que consultant en marketing local, classe les idées par impact (faible, moyen, fort), par facilité de mise en œuvre et par coût. Ajoute un conseil sur comment mesurer le succès de chaque action.", cas: "Un café veut attirer plus de clients le matin." },
-            { n: 10, title: "Créer une accroche locale", objectif: "Rédiger des accroches fortes et mémorables pour attirer l'attention.", complet: "Crée 15 accroches marketing locales pour mon entreprise : [ACTIVITÉ]. Cible : [CLIENTÈLE]. Ville/quartier : [LIEU]. Ton : [PRO / CHALEUREUX / PREMIUM / FAMILIAL / MODERNE]. Les accroches doivent être courtes, mémorables et adaptées à une affiche, un post ou une publicité locale.", courte: "Crée 15 accroches pour [ACTIVITÉ] à [VILLE].", avancee: "Agis comme un concepteur-rédacteur. Classe les accroches par style : émotionnel, direct, premium, urgent, convivial. Donne un bref commentaire sur ce qui rend chaque style efficace.", cas: "Un institut veut une phrase forte pour une campagne \"nouveau soin minceur\"." }
-          ]
-        },
-        {
-          id: "contenu", number: "03", title: "Contenu",
-          intro: "Créer et planifier du contenu sur vos réseaux sociaux et votre fiche Google. Posts, stories, reels et calendriers éditoriaux.",
-          prompts: [
-            { n: 11, title: "Créer un post Instagram", objectif: "Publier rapidement du contenu utile et engageant sur Instagram.", complet: "Rédige un post Instagram pour une PME locale. Activité : [ACTIVITÉ]. Sujet du post : [SUJET]. Objectif : [INFORMER / VENDRE / RASSURER / MONTRER L'AMBIANCE / PROMOUVOIR]. Ton : simple, humain, professionnel. Donne : une accroche, un texte de post, un appel à l'action, 10 hashtags locaux et une idée de visuel.", courte: "Crée un post Instagram sur [SUJET] pour [ACTIVITÉ].", avancee: "Agis comme un social media manager. Propose une version story, une version reel et une légende courte (moins de 150 caractères). Indique quel format est le plus approprié selon l'objectif (visibilité, engagement, vente).", cas: "Un restaurant présente son plat du jour." },
-            { n: 12, title: "Créer un post Google Business Profile", objectif: "Améliorer la visibilité locale sur Google grâce à des posts efficaces.", complet: "Rédige un post Google Business Profile pour mon entreprise. Activité : [ACTIVITÉ]. Ville : [VILLE]. Sujet : [NOUVEAUTÉ / PROMOTION / ÉVÉNEMENT / SERVICE / CONSEIL]. Objectif : donner envie de cliquer, réserver ou appeler. Le texte doit être court, local, clair et orienté action.", courte: "Crée un post Google Business Profile pour [ACTIVITÉ] sur [SUJET].", avancee: "En tant qu'expert SEO local, propose quatre variantes : informative, promotionnelle, urgente, premium. Indique le meilleur moment pour publier chaque type de post dans la semaine.", cas: "Un artisan annonce des disponibilités cette semaine." },
-            { n: 13, title: "Créer un calendrier de contenu mensuel", objectif: "Ne plus manquer d'idées de posts et organiser ses publications.", complet: "Crée un calendrier de contenu de 30 jours pour mon entreprise locale. Activité : [ACTIVITÉ]. Ville : [VILLE]. Objectif principal : [VISIBILITÉ / VENTES / FIDÉLISATION / NOTORIÉTÉ]. Plateformes : [INSTAGRAM / FACEBOOK / GOOGLE / LINKEDIN]. Donne pour chaque jour : sujet, format, accroche, objectif et idée visuelle.", courte: "Crée un calendrier de contenu de 30 jours pour [ACTIVITÉ].", avancee: "Agis comme un planificateur éditorial. Organise le calendrier par piliers (preuve sociale, conseils, offre, coulisses, expertise). Inclue une suggestion d'heure de publication pour chaque type de contenu.", cas: "Un salon de beauté veut publier régulièrement sans perdre du temps." },
-            { n: 14, title: "Transformer une prestation en contenu éducatif", objectif: "Créer du contenu éducatif pour donner confiance et montrer son expertise.", complet: "Transforme cette prestation en contenu éducatif simple pour mes clients : [PRESTATION]. Mon entreprise : [ACTIVITÉ]. Cible : [CLIENTÈLE]. Crée : un post explicatif, 5 questions-réponses, 3 idées de stories et une phrase de conclusion qui invite à réserver ou demander un devis.", courte: "Explique simplement la prestation [SERVICE] pour mes clients.", avancee: "En tant que formateur, ajoute une version \"avant/après\", une version \"mythes et réalités\" et une version \"erreurs fréquentes\". Explique dans quel ordre publier ces contenus pour maintenir l'intérêt des clients.", cas: "Un institut explique pourquoi faire un soin hydrafacial." },
-            { n: 15, title: "Générer des idées de reels", objectif: "Créer des vidéos courtes sans script compliqué.", complet: "Donne-moi 15 idées de reels simples pour mon entreprise locale : [ACTIVITÉ]. Objectif : [VISIBILITÉ / CONFIANCE / VENTE / HUMAIN / AVANT-APRÈS]. Contraintes : réalisables avec un smartphone, sans montage complexe, en moins de 30 minutes. Pour chaque idée, donne : concept, scène à filmer, texte à afficher, phrase d'accroche et appel à l'action.", courte: "Donne 15 idées de reels simples pour [ACTIVITÉ].", avancee: "Agis comme un vidéaste créatif. Classe les idées par niveau de difficulté et potentiel viral. Donne un conseil pour le montage et la musique pour chaque niveau.", cas: "Un coiffeur veut montrer ses transformations clients." }
-          ]
-        },
-        {
-          id: "ventes", number: "04", title: "Ventes",
-          intro: "Mieux présenter vos prestations, structurer vos offres en plusieurs niveaux et répondre aux objections. Augmentez votre taux de conversion.",
-          prompts: [
-            { n: 16, title: "Créer un argumentaire de vente", objectif: "Mieux présenter une prestation et répondre aux objections.", complet: "Crée un argumentaire de vente simple pour cette prestation : [PRESTATION]. Entreprise : [ACTIVITÉ]. Cible : [CLIENTÈLE]. Prix : [PRIX]. Donne : les bénéfices client, les objections possibles, les réponses aux objections, une phrase de vente courte et une version WhatsApp.", courte: "Crée un argumentaire de vente pour [PRESTATION].", avancee: "En tant qu'expert en copywriting, ajoute une version pour un client sensible au prix et une version pour un client premium. Explique les nuances de ton et de vocabulaire à utiliser.", cas: "Un coach sportif local veut vendre un accompagnement de 3 mois." },
-            { n: 17, title: "Créer une offre en 3 niveaux", objectif: "Augmenter le panier moyen en proposant plusieurs niveaux de service.", complet: "Crée une offre en 3 niveaux pour mon entreprise : [ACTIVITÉ]. Prestation : [SERVICE]. Cible : [CLIENTÈLE]. Objectif : proposer une option entrée de gamme, une option recommandée et une option premium. Donne le nom de chaque offre, ce qui est inclus, le prix conseillé, les bénéfices et la phrase de vente.", courte: "Crée 3 niveaux d'offre pour [SERVICE].", avancee: "Agis comme un stratège tarifaire. Propose une stratégie pour orienter les clients vers l'offre intermédiaire (positionnement prix, bénéfices mis en avant).", cas: "Une entreprise de nettoyage crée des forfaits appartement." },
-            { n: 18, title: "Répondre à une objection prix", objectif: "Éviter de baisser trop vite ses prix tout en restant persuasif.", complet: "Rédige une réponse professionnelle à un client qui dit : \"C'est trop cher.\" Service : [SERVICE]. Prix : [PRIX]. Valeur incluse : [QUALITÉ / TEMPS / EXPERTISE / GARANTIE / RÉSULTAT]. Réponse souhaitée : calme, respectueuse, persuasive, sans agressivité. Termine avec une alternative possible sans brader l'offre.", courte: "Réponds à un client qui trouve [SERVICE] trop cher.", avancee: "Agis comme un négociateur. Donne trois réponses : ferme (insiste sur la valeur), douce (met l'accent sur l'écoute) et orientée valeur (explique le retour sur investissement).", cas: "Un artisan ne veut pas réduire son devis de 20 %." },
-            { n: 19, title: "Créer un message de vente WhatsApp", objectif: "Vendre rapidement par message, sans agressivité.", complet: "Rédige un message WhatsApp court pour vendre ou présenter cette offre : [OFFRE]. Cible : [CLIENTÈLE]. Ton : naturel, direct, sympathique, non agressif. Le message doit expliquer le bénéfice, donner une raison d'agir maintenant et proposer une action simple.", courte: "Écris un message WhatsApp pour vendre [OFFRE].", avancee: "En tant que spécialiste des messageries instantanées, donne cinq variantes selon le ton : chaleureux, premium, urgent, discret, très court. Indique quand utiliser chacune de ces variantes.", cas: "Un salon relance ses anciennes clientes pour une offre soin visage." },
-            { n: 20, title: "Préparer un appel commercial", objectif: "Structurer un échange avec un prospect pour conclure une vente.", complet: "Prépare une trame d'appel commercial pour un prospect intéressé par : [SERVICE]. Entreprise : [ACTIVITÉ]. Objectif de l'appel : comprendre le besoin, rassurer, présenter l'offre et obtenir une prochaine étape. Donne les questions à poser, les phrases clés, les objections possibles et une conclusion efficace.", courte: "Prépare une trame d'appel pour vendre [SERVICE].", avancee: "Agis comme un coach en vente. Propose deux versions : une trame courte pour un appel de 5 minutes et une trame détaillée pour un appel de 20 minutes. Inclue des conseils pour écouter activement et reformuler.", cas: "Un prestataire local reçoit un prospect pour un projet de rénovation." }
-          ]
-        },
-        {
-          id: "organisation", number: "05", title: "Organisation",
-          intro: "Structurer votre quotidien, créer des procédures simples et prioriser vos tâches. Gagnez en efficacité et en sérénité.",
-          prompts: [
-            { n: 21, title: "Créer une checklist quotidienne", objectif: "Mieux organiser la journée et ne rien oublier.", complet: "Crée une checklist quotidienne simple pour une entreprise locale de type : [ACTIVITÉ]. Objectif : gagner du temps, ne rien oublier, améliorer le service client. Divise la checklist en : ouverture, journée, clients, marketing, administratif, fermeture.", courte: "Crée une checklist quotidienne pour [ACTIVITÉ].", avancee: "En tant que consultant en organisation, crée deux versions : une pour le dirigeant et une pour l'équipe. Inclue un espace pour cocher et un conseil pour déléguer certaines tâches.", cas: "Un restaurant veut structurer l'ouverture et la fermeture." },
-            { n: 22, title: "Résumer une journée ou une semaine", objectif: "Faire un point rapide et identifier les priorités suivantes.", complet: "Aide-moi à faire un résumé professionnel de ma journée/semaine. Voici mes notes : \"[NOTES]\" Classe les informations en : ventes, clients, problèmes, tâches à faire, priorités, idées d'amélioration. Termine par les 3 actions les plus importantes à faire ensuite.", courte: "Résume ces notes et donne les priorités : \"[NOTES]\".", avancee: "Agis comme un coach de productivité. Ajoute une analyse des pertes de temps et des opportunités commerciales. Propose une recommandation pour la semaine à venir.", cas: "Un dirigeant note en vrac les événements de la semaine." },
-            { n: 23, title: "Créer une procédure simple", objectif: "Standardiser une tâche répétitive pour qu'un nouvel employé la réalise facilement.", complet: "Crée une procédure simple et claire pour cette tâche : [TÂCHE]. Entreprise : [ACTIVITÉ]. La procédure doit être compréhensible par un nouvel employé. Structure : objectif, matériel nécessaire, étapes, erreurs à éviter, contrôle final.", courte: "Crée une procédure pour [TÂCHE].", avancee: "En tant que formateur, ajoute une version checklist imprimable et un encadré \"Astuces\" pour éviter les erreurs les plus fréquentes.", cas: "Un salon crée une procédure d'accueil client." },
-            { n: 24, title: "Prioriser les tâches", objectif: "Savoir quoi faire en premier et organiser la semaine efficacement.", complet: "Voici ma liste de tâches : \"[LISTE]\" Classe-les par priorité selon l'impact business, l'urgence et le temps nécessaire. Donne-moi : les tâches à faire aujourd'hui, cette semaine, plus tard, et celles à déléguer ou supprimer.", courte: "Priorise cette liste de tâches : \"[LISTE]\".", avancee: "En tant que spécialiste en gestion du temps, ajoute un planning réaliste sur 5 jours et conseille comment regrouper certaines tâches similaires.", cas: "Un indépendant est débordé par les demandes clients et l'administratif." },
-            { n: 25, title: "Créer un modèle d'email administratif", objectif: "Gagner du temps sur les messages répétitifs en utilisant un modèle.", complet: "Crée un modèle d'email administratif pour cette situation : [SITUATION]. Entreprise : [ACTIVITÉ]. Ton : clair, poli, professionnel. Le modèle doit être réutilisable, avec des champs à personnaliser entre crochets.", courte: "Crée un modèle d'email pour [SITUATION].", avancee: "En tant que rédacteur professionnel, ajoute une version courte, une version formelle et une version très chaleureuse. Explique quand utiliser chaque version.", cas: "Une entreprise envoie régulièrement des confirmations de rendez-vous." }
-          ]
-        },
-        {
-          id: "support", number: "06", title: "Support client",
-          intro: "Offrir un excellent service après-vente pour fidéliser. FAQ, réclamations, annulations et accueil des clients.",
-          prompts: [
-            { n: 26, title: "Créer une FAQ client", objectif: "Répondre aux questions répétitives et rassurer les clients.", complet: "Crée une FAQ pour mon entreprise locale. Activité : [ACTIVITÉ]. Services : [SERVICES]. Questions fréquentes connues : [LISTE]. Donne 15 questions-réponses simples, rassurantes et utiles pour les clients.", courte: "Crée une FAQ pour [ACTIVITÉ].", avancee: "En tant que responsable service client, classe la FAQ par catégories : prix, délais, réservation, paiement, annulation, garanties. Ajoute un conseil pour encourager les clients à lire la FAQ avant de poser leurs questions.", cas: "Un institut veut répondre aux questions avant la prise de rendez-vous." },
-            { n: 27, title: "Répondre à une réclamation", objectif: "Gérer un client mécontent de manière professionnelle.", complet: "Rédige une réponse à une réclamation client. Message du client : \"[MESSAGE]\" Contexte : [EXPLIQUER]. Objectif : reconnaître le problème, rester professionnel, calmer la situation et proposer une solution raisonnable. Ne sois ni défensif ni trop soumis.", courte: "Réponds à cette réclamation client : \"[MESSAGE]\".", avancee: "En tant que médiateur, donne trois versions : diplomatique, ferme et très empathique. Explique brièvement l'attitude à adopter pour chacune.", cas: "Un client se plaint d'un retard ou d'un résultat insatisfaisant." },
-            { n: 28, title: "Créer un message d'annulation ou de report", objectif: "Gérer proprement un changement de rendez-vous.", complet: "Rédige un message pour informer un client que son rendez-vous doit être reporté. Contexte : [RAISON]. Ton : désolé, professionnel, rassurant. Propose une nouvelle solution et évite de donner une impression de désorganisation.", courte: "Écris un message pour reporter un rendez-vous client.", avancee: "Agis comme un responsable relation client. Ajoute une version SMS, une version WhatsApp et une version email, en adaptant le niveau de détail et le ton.", cas: "Un coiffeur doit reporter une cliente à cause d'un imprévu." },
-            { n: 29, title: "Créer un script d'accueil client", objectif: "Améliorer l'expérience client dès le premier contact.", complet: "Crée un script d'accueil client pour mon entreprise : [ACTIVITÉ]. Contexte : [EN BOUTIQUE / AU TÉLÉPHONE / PAR MESSAGE / À L'ARRIVÉE AU RDV]. Ton : chaleureux, professionnel, naturel. Le script doit aider à mettre le client à l'aise, comprendre son besoin et proposer la bonne suite.", courte: "Crée un script d'accueil pour [ACTIVITÉ].", avancee: "En tant que formateur en accueil client, ajoute une version pour nouveau client et une version pour client fidèle. Indique les différences clés entre ces deux scripts.", cas: "Un centre esthétique veut standardiser l'accueil." },
-            { n: 30, title: "Créer une réponse automatique", objectif: "Ne pas laisser les clients sans réponse en dehors des horaires d'ouverture.", complet: "Rédige un message automatique pour répondre aux clients en dehors des horaires d'ouverture. Entreprise : [ACTIVITÉ]. Horaires : [HORAIRES]. Moyens de contact : [TÉLÉPHONE / EMAIL / SITE / RÉSERVATION]. Ton : clair, sympathique, professionnel. Le message doit rassurer le client et lui dire quand il recevra une réponse.", courte: "Crée un message automatique hors horaires pour [ACTIVITÉ].", avancee: "Agis comme un spécialiste des communications automatisées. Ajoute une version WhatsApp Business, une version email et une version Instagram DM. Inclue un lien direct vers un formulaire de réservation ou un chatbot.", cas: "Un restaurant reçoit des demandes de réservation tard le soir." }
-          ]
-        },
-        {
-          id: "avis", number: "07", title: "Avis clients",
-          intro: "Les avis clients renforcent votre réputation en ligne et influencent les décisions d'achat. Demander, répondre et exploiter.",
-          prompts: [
-            { n: 31, title: "Demander un avis Google", objectif: "Obtenir plus d'avis clients de manière simple et naturelle.", complet: "Rédige un message court pour demander un avis Google à un client satisfait. Entreprise : [NOM]. Prestation : [PRESTATION]. Ton : simple, chaleureux, naturel. Le message doit remercier le client, expliquer que son avis aide beaucoup l'entreprise locale, et inclure un espace pour le lien Google.", courte: "Écris un message pour demander un avis Google à un client satisfait.", avancee: "En tant que marketeur, donne cinq variantes : SMS, WhatsApp, email, Instagram, carte imprimée. Explique quels éléments garder constants (remerciement, lien) et quels éléments adapter.", cas: "Un client sort satisfait d'un restaurant ou d'un salon." },
-            { n: 32, title: "Répondre à un avis positif", objectif: "Valoriser les clients satisfaits et encourager leur fidélité.", complet: "Rédige une réponse à cet avis positif : \"[AVIS]\" Entreprise : [ACTIVITÉ]. Ton : chaleureux, sincère, professionnel. Réponse courte, personnalisée, avec une invitation à revenir.", courte: "Réponds à cet avis positif : \"[AVIS]\".", avancee: "Agis comme un community manager. Donne trois versions : courte, très chaleureuse et premium. Indique quand répondre en public ou en privé.", cas: "Un restaurant répond à un avis 5 étoiles." },
-            { n: 33, title: "Répondre à un avis négatif", objectif: "Protéger la réputation en ligne en gérant les avis négatifs avec professionnalisme.", complet: "Rédige une réponse professionnelle à cet avis négatif : \"[AVIS]\" Contexte réel : [EXPLIQUER SI BESOIN]. Objectif : rester calme, reconnaître l'expérience du client, éviter le conflit public, proposer un contact privé. Ne reconnais pas une faute grave si elle n'est pas confirmée. Ton : professionnel, posé, respectueux.", courte: "Réponds à cet avis négatif avec calme et professionnalisme : \"[AVIS]\".", avancee: "En tant que responsable réputation en ligne, donne trois versions selon le cas : client de bonne foi, avis injuste, avis agressif. Explique les différences de ton et de contenu.", cas: "Un client laisse un avis 1 étoile injustifié." },
-            { n: 34, title: "Transformer un avis en contenu marketing", objectif: "Réutiliser les témoignages clients pour renforcer la communication.", complet: "Transforme cet avis client en contenu marketing : \"[AVIS]\" Entreprise : [ACTIVITÉ]. Crée : un post Instagram, une story, une phrase pour le site web, une accroche courte et une version Google Business Profile. Reste naturel et ne déforme pas le témoignage.", courte: "Transforme cet avis en post marketing : \"[AVIS]\".", avancee: "En tant que copywriter, ajoute une version premium et une version très locale. Explique comment adapter le format en fonction du canal (impression, réseaux sociaux, email).", cas: "Un salon veut publier le retour d'une cliente satisfaite." },
-            { n: 35, title: "Créer une stratégie d'avis clients", objectif: "Mettre en place une routine pour obtenir et exploiter les avis clients.", complet: "Crée une stratégie simple pour obtenir plus d'avis clients. Entreprise : [ACTIVITÉ]. Parcours client : [AVANT / PENDANT / APRÈS]. Donne : quand demander l'avis, à qui, par quel canal, avec quel message, combien de fois relancer et comment répondre aux avis.", courte: "Crée une stratégie simple pour obtenir plus d'avis Google.", avancee: "Agis comme un consultant en fidélisation. Ajoute un système hebdomadaire de suivi des avis clients (tableau de suivi, notifications) et des conseils pour impliquer l'équipe dans la demande d'avis.", cas: "Une PME veut passer de 20 à 100 avis Google en quelques mois." }
-          ]
-        }
-      ],
-      workflows: [
-        { n: 1, title: "Répondre à un prospect", sub: "Transformer une demande en rendez-vous, réservation ou devis.", steps: ["Copier le message du prospect.", "Utiliser le prompt « Répondre à une demande client ».", "Demander à l'IA une version courte pour WhatsApp.", "Ajouter une phrase personnalisée.", "Envoyer.", "Si pas de réponse après 48 h, utiliser le prompt de relance."], prompt: "Voici le message d'un prospect : \"[MESSAGE]\". Mon entreprise est : [ACTIVITÉ]. Je veux lui répondre de manière professionnelle, rassurante et orientée conversion. Rédige une réponse courte pour WhatsApp, une version email et une relance à envoyer dans 48 h s'il ne répond pas." },
-        { n: 2, title: "Créer une offre locale", sub: "Créer une offre qui donne envie d'acheter.", steps: ["Choisir une prestation à promouvoir.", "Définir la cible.", "Choisir une durée limitée.", "Générer l'offre avec l'IA.", "Créer les textes pour Google, Instagram et WhatsApp.", "Publier et relancer les anciens clients."], prompt: "Crée une offre locale pour mon entreprise : [ACTIVITÉ]. Ville : [VILLE]. Prestation : [SERVICE]. Cible : [CLIENTÈLE]. Objectif : générer plus de réservations cette semaine. Donne-moi le nom de l'offre, le texte promotionnel, un post Instagram, un post Google Business Profile, un message WhatsApp et une relance." },
-        { n: 3, title: "Générer des posts Google Business Profile", sub: "Améliorer la visibilité locale sur Google.", steps: ["Choisir un sujet : nouveauté, offre, conseil, disponibilité.", "Utiliser le prompt Google Business Profile.", "Demander 4 variantes.", "Publier 1 à 2 fois par semaine.", "Réutiliser le contenu en story Instagram."], prompt: "Crée 4 posts Google Business Profile pour mon entreprise : [ACTIVITÉ] à [VILLE]. Thèmes : disponibilité cette semaine, conseil client, mise en avant d'un service, preuve sociale. Chaque post doit être court, local, clair et finir par un appel à l'action." },
-        { n: 4, title: "Demander des avis clients", sub: "Obtenir régulièrement plus d'avis Google.", steps: ["Identifier les clients satisfaits.", "Envoyer un message 2 à 24 h après la prestation.", "Relancer une seule fois après 5 à 7 jours.", "Répondre à chaque avis.", "Transformer les meilleurs avis en contenu."], prompt: "Crée un système simple pour demander des avis Google à mes clients satisfaits. Entreprise : [ACTIVITÉ]. Donne-moi un message SMS, WhatsApp, email, une relance après 7 jours et une réponse type à un avis positif." },
-        { n: 5, title: "Préparer une promotion", sub: "Vendre plus sans improviser.", steps: ["Choisir l'objectif : remplir l'agenda, vendre un service, attirer de nouveaux clients.", "Définir l'offre.", "Créer une durée limitée.", "Générer les textes.", "Publier sur Google, Instagram, Facebook.", "Envoyer aux anciens clients.", "Relancer après 3 jours."], prompt: "Prépare une promotion complète pour mon entreprise : [ACTIVITÉ]. Objectif : [OBJECTIF]. Prestation : [SERVICE]. Durée : [DATES]. Cible : [CLIENTÈLE]. Donne-moi : le concept, l'offre, le texte Instagram, le post Google, le message WhatsApp, l'email client et une relance." }
-      ],
-      examples: [
-        { n: 1, sector: "Restaurant", situation: "Un restaurant veut remplir ses tables le mardi soir.", prompt: "Crée une offre locale pour un restaurant italien à Genève. Objectif : remplir les tables le mardi soir. Cible : habitants du quartier, couples, collègues après le travail. Offre : menu pasta + dessert maison. Ton : chaleureux, local, convivial. Donne un post Google Business Profile, un post Instagram et un message WhatsApp pour les clients fidèles.", result: { nom: "Mardi Pasta Maison", accroche: "Le mardi soir, votre table italienne vous attend.", post: "Ce mardi, profitez de notre menu Pasta Maison avec dessert fait maison. Une soirée simple, généreuse et conviviale au cœur du quartier. Réservez votre table dès maintenant." } },
-        { n: 2, sector: "Salon de beauté", situation: "Un institut veut promouvoir un soin visage.", prompt: "Crée une promotion premium pour un salon de beauté à Lausanne. Prestation : soin visage éclat 60 minutes. Cible : femmes actives entre 25 et 55 ans. Objectif : augmenter les réservations cette semaine. Ton : élégant, rassurant, professionnel. Donne une offre, un post Instagram, une story et un message WhatsApp.", result: { nom: "Rituel Éclat Signature", accroche: "Offrez à votre peau une vraie pause éclat.", post: "Bonjour [Prénom], cette semaine nous proposons notre Rituel Éclat Signature, un soin visage de 60 minutes pensé pour redonner fraîcheur et luminosité à la peau. Il reste quelques créneaux cette semaine. Souhaitez-vous que je vous propose une disponibilité ?" } },
-        { n: 3, sector: "Artisan / service local", situation: "Un électricien veut répondre plus vite aux demandes de devis.", prompt: "Rédige une réponse professionnelle à un prospect qui demande un devis pour une intervention électrique. Activité : électricien local. Objectif : demander les bonnes informations, rassurer le client et proposer une visite ou un appel. Ton : sérieux, clair, efficace.", result: { nom: "Réponse devis électricité", accroche: "Demander les bonnes informations, rassurer, proposer une suite claire.", post: "Bonjour [Prénom], merci pour votre message. Pour vous donner une estimation précise, pouvez-vous m'indiquer le type d'intervention souhaitée, l'adresse du chantier, quelques photos si possible, ainsi que vos disponibilités ? Je pourrai ensuite vous proposer soit une première estimation, soit un passage sur place si nécessaire. Bien cordialement, [Nom]" } }
-      ]
-    };
-  </script>
+  <h1 class="headline">
+    L'IA au service<br>
+    <em>des PME locales.</em>
+  </h1>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <p class="description">
+    35 prompts prêts à l'emploi pour répondre à vos clients, créer vos offres, gérer vos avis et publier du contenu — sans perdre de temps.
+  </p>
 
-  <script type="text/babel">
-const { useState, useEffect, useRef } = React;
-
-const CATEGORY_META = {
-  communication: { hue: 28,  ico: "✶" },
-  marketing:     { hue: 18,  ico: "◐" },
-  contenu:       { hue: 200, ico: "◇" },
-  ventes:        { hue: 350, ico: "▲" },
-  organisation:  { hue: 140, ico: "■" },
-  support:       { hue: 270, ico: "●" },
-  avis:          { hue: 50,  ico: "★" },
-};
-
-function CopyBtn({ text, label = "Copier" }) {
-  const [done, setDone] = useState(false);
-  return (
-    <button
-      className={"copy-btn" + (done ? " is-done" : "")}
-      onClick={(e) => {
-        e.stopPropagation();
-        navigator.clipboard.writeText(text);
-        setDone(true);
-        setTimeout(() => setDone(false), 1600);
-      }}
-    >
-      <span className="copy-icon" aria-hidden="true">
-        {done ? "✓" : (
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-            <rect x="4.5" y="4.5" width="9" height="9" rx="1.2" stroke="currentColor" strokeWidth="1.2"/>
-            <path d="M11.5 4V3a1 1 0 0 0-1-1H3.5a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h1" stroke="currentColor" strokeWidth="1.2"/>
-          </svg>
-        )}
-      </span>
-      {done ? "Copié" : label}
-    </button>
-  );
-}
-
-function PromptCard({ p, hue }) {
-  const [variant, setVariant] = useState("complet");
-  const [expanded, setExpanded] = useState(false);
-  const variants = [
-    { id: "complet", label: "Complet" },
-    { id: "courte", label: "Express" },
-    { id: "avancee", label: "Avancée" },
-  ];
-  const text = p[variant];
-  return (
-    <article className={"prompt-card" + (expanded ? " is-expanded" : "")} style={{ "--cat-hue": hue }}>
-      <header className="pc-head" onClick={() => setExpanded(!expanded)}>
-        <div className="pc-num">
-          <span className="pc-num-label">Prompt</span>
-          <span className="pc-num-val">{String(p.n).padStart(2, "0")}</span>
-        </div>
-        <div className="pc-title-wrap">
-          <h3 className="pc-title">{p.title}</h3>
-          <p className="pc-obj">{p.objectif}</p>
-        </div>
-        <button className="pc-toggle" aria-label="Afficher">
-          <span className="pc-toggle-icon">{expanded ? "−" : "+"}</span>
-        </button>
-      </header>
-      {expanded && (
-        <div className="pc-body">
-          <div className="pc-tabs">
-            {variants.map((v) => (
-              <button key={v.id} className={"pc-tab" + (variant === v.id ? " is-active" : "")} onClick={() => setVariant(v.id)}>
-                {v.label}
-              </button>
-            ))}
-            <div className="pc-tab-spacer"></div>
-            <CopyBtn text={text} />
-          </div>
-          <pre className="pc-prompt">{text}</pre>
-          <div className="pc-foot">
-            <span className="pc-foot-label">Cas d'usage</span>
-            <span className="pc-foot-text">{p.cas}</span>
-          </div>
-        </div>
-      )}
-    </article>
-  );
-}
-
-function CategorySection({ cat }) {
-  const meta = CATEGORY_META[cat.id] || { hue: 30, ico: "◆" };
-  return (
-    <section className="cat-section" id={"cat-" + cat.id}>
-      <div className="cat-header">
-        <div className="cat-header-left">
-          <div className="cat-marker" style={{ "--cat-hue": meta.hue }}>
-            <span className="cat-marker-ico">{meta.ico}</span>
-          </div>
-          <div>
-            <div className="cat-eyebrow">Section {cat.number} · {cat.prompts.length} prompts</div>
-            <h2 className="cat-title">{cat.title}</h2>
-          </div>
-        </div>
-        <p className="cat-intro">{cat.intro}</p>
-      </div>
-      <div className="cat-prompts">
-        {cat.prompts.map((p) => <PromptCard key={p.n} p={p} hue={meta.hue} />)}
-      </div>
-    </section>
-  );
-}
-
-function WorkflowCard({ w }) {
-  return (
-    <article className="wf-card">
-      <div className="wf-head">
-        <div className="wf-num">W{String(w.n).padStart(2, "0")}</div>
-        <div>
-          <h3 className="wf-title">{w.title}</h3>
-          <p className="wf-sub">{w.sub}</p>
-        </div>
-      </div>
-      <ol className="wf-steps">
-        {w.steps.map((s, i) => (
-          <li key={i}>
-            <span className="wf-step-n">{String(i + 1).padStart(2, "0")}</span>
-            <span>{s}</span>
-          </li>
-        ))}
-      </ol>
-      <div className="wf-prompt-wrap">
-        <div className="wf-prompt-head">
-          <span className="wf-prompt-label">Prompt à utiliser</span>
-          <CopyBtn text={w.prompt} />
-        </div>
-        <pre className="wf-prompt">{w.prompt}</pre>
-      </div>
-    </article>
-  );
-}
-
-function ExampleCard({ ex }) {
-  return (
-    <article className="ex-card">
-      <header className="ex-head">
-        <div className="ex-tag">Exemple {ex.n}</div>
-        <h3 className="ex-sector">{ex.sector}</h3>
-        <p className="ex-situation">{ex.situation}</p>
-      </header>
-      <div className="ex-body">
-        <div className="ex-block">
-          <div className="ex-block-label">Prompt utilisé</div>
-          <pre className="ex-block-text">{ex.prompt}</pre>
-          <CopyBtn text={ex.prompt} />
-        </div>
-        <div className="ex-result">
-          <div className="ex-block-label">Résultat attendu</div>
-          <div className="ex-result-name">{ex.result.nom}</div>
-          <div className="ex-result-accroche">« {ex.result.accroche} »</div>
-          <p className="ex-result-post">{ex.result.post}</p>
-        </div>
-      </div>
-    </article>
-  );
-}
-
-function Sidebar({ sections, active, onJump, query, setQuery, mobileOpen, setMobileOpen }) {
-  return (
-    <aside className={"sidebar" + (mobileOpen ? " is-open" : "")}>
-      <div className="sb-brand">
-        <div className="sb-mark">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.4"/>
-            <path d="M8 12l3 3 5-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
-        <div>
-          <div className="sb-brand-title">Kit IA</div>
-          <div className="sb-brand-sub">PME locales</div>
-        </div>
-        <button className="sb-close" onClick={() => setMobileOpen(false)} aria-label="Fermer">×</button>
-      </div>
-      <div className="sb-search">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="sb-search-ico">
-          <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.2"/>
-          <path d="M10.5 10.5L13.5 13.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+  <div class="cta-wrap">
+    <div class="cta-glow"></div>
+    <a href="prompt.html" class="cta">
+      Accéder aux prompts
+      <span class="cta-arrow">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <input type="text" placeholder="Chercher un prompt…" value={query} onChange={(e) => setQuery(e.target.value)} />
-        {query && <button className="sb-search-clear" onClick={() => setQuery("")}>×</button>}
-      </div>
-      <nav className="sb-nav">
-        <div className="sb-nav-label">Sections</div>
-        {sections.map((s) => {
-          const meta = CATEGORY_META[s.id] || { hue: 30 };
-          return (
-            <button key={s.id} className={"sb-link" + (active === s.id ? " is-active" : "")}
-              onClick={() => { onJump("cat-" + s.id); setMobileOpen(false); }}
-              style={{ "--cat-hue": meta.hue }}>
-              <span className="sb-link-num">{s.number}</span>
-              <span className="sb-link-title">{s.title}</span>
-              <span className="sb-link-count">{s.prompts.length}</span>
-            </button>
-          );
-        })}
-        <div className="sb-nav-label" style={{ marginTop: 18 }}>Bonus</div>
-        <button className={"sb-link" + (active === "workflows" ? " is-active" : "")}
-          onClick={() => { onJump("cat-workflows"); setMobileOpen(false); }}>
-          <span className="sb-link-num">W</span>
-          <span className="sb-link-title">Workflows IA</span>
-          <span className="sb-link-count">5</span>
-        </button>
-        <button className={"sb-link" + (active === "examples" ? " is-active" : "")}
-          onClick={() => { onJump("cat-examples"); setMobileOpen(false); }}>
-          <span className="sb-link-num">EX</span>
-          <span className="sb-link-title">Exemples sectoriels</span>
-          <span className="sb-link-count">3</span>
-        </button>
-      </nav>
-      <div className="sb-foot">
-        <div className="sb-foot-line">35 prompts · 5 workflows · 3 exemples</div>
-        <div className="sb-foot-line dim">Pour PME locales francophones</div>
-      </div>
-    </aside>
-  );
-}
+      </span>
+    </a>
+  </div>
 
-function SearchResults({ query, sections }) {
-  const q = query.trim().toLowerCase();
-  const matches = [];
-  sections.forEach((cat) => {
-    cat.prompts.forEach((p) => {
-      if ((p.title + " " + p.objectif + " " + p.complet + " " + p.cas).toLowerCase().includes(q)) {
-        matches.push({ cat, p });
-      }
-    });
-  });
-  if (matches.length === 0) return <div className="search-empty">Aucun prompt ne correspond à « {query} ».</div>;
-  return (
-    <div className="search-results">
-      <div className="search-head">
-        <span className="search-count">{matches.length}</span> résultat{matches.length > 1 ? "s" : ""} pour « {query} »
-      </div>
-      <div className="cat-prompts">
-        {matches.map(({ cat, p }) => (
-          <PromptCard key={cat.id + "-" + p.n} p={p} hue={(CATEGORY_META[cat.id] || {}).hue || 30} />
-        ))}
-      </div>
-    </div>
-  );
-}
+  <div class="support">
+    <p class="support-text">
+      Contenu <strong>100 % gratuit</strong> — si ces prompts vous font gagner du temps, vous pouvez me soutenir avec un café.
+    </p>
+    <a href="#" class="coffee-btn">
+      ☕&nbsp; Offrir un café
+    </a>
+  </div>
 
-function App() {
-  const data = window.EBOOK_DATA;
-  const [query, setQuery] = useState("");
-  const [active, setActive] = useState(data.sections[0].id);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const mainRef = useRef(null);
+  <div class="footer-mark">Kit IA · PME Locales</div>
 
-  const handleJump = (id) => {
-    const el = document.getElementById(id);
-    if (el && mainRef.current) {
-      const top = el.getBoundingClientRect().top + mainRef.current.scrollTop - 24;
-      mainRef.current.scrollTo({ top, behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    const main = mainRef.current;
-    if (!main) return;
-    const onScroll = () => {
-      const ids = [...data.sections.map((s) => s.id), "workflows", "examples"];
-      let cur = ids[0];
-      for (const id of ids) {
-        const el = document.getElementById("cat-" + id);
-        if (el && el.getBoundingClientRect().top - 120 <= 0) cur = id;
-      }
-      setActive(cur);
-    };
-    main.addEventListener("scroll", onScroll, { passive: true });
-    return () => main.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const isSearching = query.trim().length > 1;
-
-  return (
-    <div className="layout">
-      <Sidebar sections={data.sections} active={active} onJump={handleJump}
-        query={query} setQuery={setQuery} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-      <button className="sb-burger" onClick={() => setMobileOpen(true)} aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-      <main className="main" ref={mainRef}>
-        <section className="hero">
-          <div className="hero-eyebrow"><span className="hero-dot"></span>Kit premium · Édition 2026</div>
-          <h1 className="hero-title">
-            <span className="hero-title-line">Des prompts IA</span>
-            <span className="hero-title-line hero-title-italic">qui parlent local.</span>
-          </h1>
-          <p className="hero-lede">{data.subtitle}</p>
-          <div className="hero-stats">
-            <div className="hero-stat"><div className="hero-stat-num">35</div><div className="hero-stat-lbl">Prompts<br/>prêts à coller</div></div>
-            <div className="hero-stat-sep"></div>
-            <div className="hero-stat"><div className="hero-stat-num">07</div><div className="hero-stat-lbl">Sections<br/>thématiques</div></div>
-            <div className="hero-stat-sep"></div>
-            <div className="hero-stat"><div className="hero-stat-num">05</div><div className="hero-stat-lbl">Workflows<br/>complets</div></div>
-            <div className="hero-stat-sep"></div>
-            <div className="hero-stat"><div className="hero-stat-num">03</div><div className="hero-stat-lbl">Cas<br/>sectoriels</div></div>
-          </div>
-          <div className="hero-tip">
-            <div className="hero-tip-label">Comment ça marche</div>
-            <ol className="hero-tip-steps">
-              <li><b>1.</b> Cliquez sur un prompt pour le déplier.</li>
-              <li><b>2.</b> Choisissez la version <em>Express</em>, <em>Complète</em> ou <em>Avancée</em>.</li>
-              <li><b>3.</b> Copiez, remplacez les <code>[CROCHETS]</code> par votre contexte, collez dans votre IA.</li>
-            </ol>
-          </div>
-        </section>
-
-        {isSearching ? (
-          <SearchResults query={query} sections={data.sections} />
-        ) : (
-          <>
-            {data.sections.map((cat) => <CategorySection key={cat.id} cat={cat} />)}
-
-            <section className="cat-section" id="cat-workflows">
-              <div className="cat-header">
-                <div className="cat-header-left">
-                  <div className="cat-marker" style={{ "--cat-hue": 220 }}><span className="cat-marker-ico">⇄</span></div>
-                  <div>
-                    <div className="cat-eyebrow">Workflows · 5 enchaînements</div>
-                    <h2 className="cat-title">Workflows IA prêts à l'emploi</h2>
-                  </div>
-                </div>
-                <p className="cat-intro">Des séquences d'actions complètes pour transformer un prompt isolé en routine business répétable.</p>
-              </div>
-              <div className="wf-grid">
-                {data.workflows.map((w) => <WorkflowCard key={w.n} w={w} />)}
-              </div>
-            </section>
-
-            <section className="cat-section" id="cat-examples">
-              <div className="cat-header">
-                <div className="cat-header-left">
-                  <div className="cat-marker" style={{ "--cat-hue": 100 }}><span className="cat-marker-ico">◈</span></div>
-                  <div>
-                    <div className="cat-eyebrow">Exemples sectoriels · 3 cas</div>
-                    <h2 className="cat-title">Vu en situation réelle</h2>
-                  </div>
-                </div>
-                <p className="cat-intro">Trois métiers, trois prompts envoyés à l'IA, et le résultat obtenu. À adapter à votre activité.</p>
-              </div>
-              <div className="ex-grid">
-                {data.examples.map((ex) => <ExampleCard key={ex.n} ex={ex} />)}
-              </div>
-            </section>
-
-            <section className="conclusion">
-              <div className="conclusion-mark">·</div>
-              <h2 className="conclusion-title">L'IA ne remplace pas le dirigeant.</h2>
-              <p className="conclusion-text">Elle lui fait gagner du temps sur les tâches répétitives pour qu'il puisse se concentrer sur les clients, la qualité et la croissance de son entreprise. Utilisez ces prompts comme une base et personnalisez-les pour qu'ils reflètent votre identité et vos valeurs locales.</p>
-              <div className="conclusion-foot">Fin du kit · Bon travail.</div>
-            </section>
-          </>
-        )}
-      </main>
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  </script>
 </body>
 </html>
